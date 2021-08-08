@@ -6,26 +6,60 @@ import android.os.Parcelable;
 public class Notes implements Parcelable, Constants {
     private String noteName;
     private String noteBody;
-    private String noteCreateData;
+    private String noteCreatedData;
 
 
+    public Notes(String noteName) {
+        this.noteName = noteName;
+    }
 
+    public Notes(String noteName, String noteBody) {
+        this.noteName = noteName;
+        this.noteBody = noteBody;
+    }
 
+    public Notes(String noteName, String noteBody, String noteCreatedData) {
+        this.noteName = noteName;
+        this.noteBody = noteBody;
+        this.noteCreatedData = noteCreatedData;
+    }
 
+    public String getNoteName() {
+        return noteName;
+    }
 
+    public void setNoteName(String noteName) {
+        this.noteName = noteName;
+    }
+
+    public String getNoteBody() {
+        return noteBody;
+    }
+
+    public void setNoteBody(String noteBody) {
+        this.noteBody = noteBody;
+    }
+
+    public String getNoteCreatedData() {
+        return noteCreatedData;
+    }
+
+    public void setNoteCreatedData(String noteCreatedData) {
+        this.noteCreatedData = noteCreatedData;
+    }
 
 
     protected Notes(Parcel in) {
         noteName = in.readString();
         noteBody = in.readString();
-        noteCreateData = in.readString();
+        noteCreatedData = in.readString();
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(noteName);
         dest.writeString(noteBody);
-        dest.writeString(noteCreateData);
+        dest.writeString(noteCreatedData);
     }
 
     @Override

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="noteNamesArray">
+        <item>Заметка №1</item>
+        <item>Заметка №2</item>
+        <item>Заметка №3</item>
+        <item>Заметка №4</item>
+    </string-array>
+
+    <string-array name="noteDataArray">
+        <item>Дата заметки №1</item>
+        <item>Дата заметки №2</item>
+        <item>Дата заметки №3</item>
+        <item>Дата заметки №4</item>
+    </string-array>
+
+    <string-array name="noteBodiesArray">
+        <item>Тело №1</item>
+        <item>Тело №2</item>
+        <item>Тело №3</item>
+        <item>Тело №4</item>
+    </string-array>
+
+</resources>

@@ -4,8 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CurrentNoteFragment"
-    android:background="@color/purple_200">
+    tools:context=".CurrentNoteFragment">
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/note_subject_edit_text"
