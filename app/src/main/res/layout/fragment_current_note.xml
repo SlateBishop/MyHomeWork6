@@ -6,5 +6,29 @@
     android:orientation="vertical"
     tools:context=".CurrentNoteFragment">
 
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/note_subject_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/note_subject_hint"
+        android:textSize="@dimen/note_subject_text_size" />
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/note_date_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/note_date_text_size" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/note_body_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/note_body_hint"
+            android:textSize="@dimen/note_body_text_size" />
+
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>
