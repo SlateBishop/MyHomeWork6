@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class ListOfNotesFragment extends Fragment {
+public class ListOfNotesFragment extends Fragment implements Constants {
 
 
     public ListOfNotesFragment() {

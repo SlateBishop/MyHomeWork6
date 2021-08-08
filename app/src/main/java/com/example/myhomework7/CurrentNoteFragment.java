@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class CurrentNoteFragment extends Fragment {
+public class CurrentNoteFragment extends Fragment implements Constants {
 
 
     public CurrentNoteFragment() {
