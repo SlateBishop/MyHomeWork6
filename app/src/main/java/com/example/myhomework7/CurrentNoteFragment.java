@@ -1,14 +1,13 @@
 package com.example.myhomework7;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
 
 public class CurrentNoteFragment extends Fragment implements Constants {
     private Notes note;
@@ -32,8 +31,6 @@ public class CurrentNoteFragment extends Fragment implements Constants {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             this.note = getArguments().getParcelable(NOTES_SAVE_INSTANCE_KEY);
-        }else {
-            note = new Notes("Название заметки", "Тело заметки", "", 0); //TODO убрать, Временная заглушка для проверки
         }
     }
 
@@ -46,9 +43,9 @@ public class CurrentNoteFragment extends Fragment implements Constants {
     }
 
     private void setText() {
-    nameEditText.setText(this.note.getNoteName());
-    bodyEditText.setText(this.note.getNoteBody());
-    dataTextView.setText(this.note.getNoteCreatedData());
+        nameEditText.setText(this.note.getNoteName());
+        bodyEditText.setText(this.note.getNoteBody());
+        dataTextView.setText(this.note.getNoteCreatedData());
     }
 
     private void initView(View view) {

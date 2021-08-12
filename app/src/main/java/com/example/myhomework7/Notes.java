@@ -3,8 +3,6 @@ package com.example.myhomework7;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Date;
-
 public class Notes implements Parcelable, Constants {
     private String noteName;
     private String noteBody;
