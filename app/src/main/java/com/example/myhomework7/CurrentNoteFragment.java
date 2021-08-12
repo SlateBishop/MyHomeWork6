@@ -11,17 +11,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class CurrentNoteFragment extends Fragment implements Constants {
-    private Notes note = new Notes("1", "2", "3"); //TODO убрать временную заглушку!
+    private Notes note;
     private EditText nameEditText;
     private EditText bodyEditText;
     private TextView dataTextView;
 
     public CurrentNoteFragment() {
-
     }
 
-    public static CurrentNoteFragment newInstance() {
+    public static CurrentNoteFragment newInstance(Notes note) {
         CurrentNoteFragment fragment = new CurrentNoteFragment();
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(NOTES_SAVE_INSTANCE_KEY, note);
+        fragment.setArguments(bundle);
         return fragment;
     }
 
@@ -29,7 +31,9 @@ public class CurrentNoteFragment extends Fragment implements Constants {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
+            this.note = getArguments().getParcelable(NOTES_SAVE_INSTANCE_KEY);
+        }else {
+            note = new Notes("Название заметки", "Тело заметки", "", 0); //TODO убрать, Временная заглушка для проверки
         }
     }
 

@@ -3,6 +3,8 @@ package com.example.myhomework7;
 import android.content.res.Configuration;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -26,8 +28,15 @@ public class ListOfNotesFragment extends Fragment implements Constants {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-
+        if (savedInstanceState != null) {
+            note = savedInstanceState.getParcelable(NOTES_SAVE_INSTANCE_KEY);
+        }
+        if (isLandscape()) {
+            if (note != null) {
+                showNote(note.getNoteIndex());
+            } else {
+                showNote(0);
+            }
         }
     }
 
@@ -38,18 +47,13 @@ public class ListOfNotesFragment extends Fragment implements Constants {
         LinearLayout linearLayout = (LinearLayout) view;
         String[] notes = getResources().getStringArray(R.array.noteNamesArray);
 
-        for ( int i = 0; i < notes.length; i++) {
+        for (int i = 0; i < notes.length; i++) {
             String name = notes[i];
             int index = i;
             TextView textView = new TextView(requireContext());
             textView.setText(name);
             linearLayout.addView(textView);
-            textView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    showNote(index);
-                }
-            });
+            textView.setOnClickListener(v -> showNote(index));
         }
 
         return view;
@@ -58,7 +62,8 @@ public class ListOfNotesFragment extends Fragment implements Constants {
     private void showNote(int i) {
         note = new Notes(getResources().getStringArray(R.array.noteNamesArray)[i],
                 getResources().getStringArray(R.array.noteBodiesArray)[i],
-                getResources().getStringArray(R.array.noteDataArray)[i]);
+                getResources().getStringArray(R.array.noteDataArray)[i],
+                i);
 
         if (isLandscape()) {
             showNoteLand();
@@ -76,7 +81,7 @@ public class ListOfNotesFragment extends Fragment implements Constants {
         requireActivity()
                 .getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.notes_list_container, CurrentNoteFragment.newInstance())
+                .replace(R.id.notes_list_container, CurrentNoteFragment.newInstance(note))
                 .addToBackStack(BACK_STACK_TAG)
                 .commit();
     }
@@ -85,7 +90,9 @@ public class ListOfNotesFragment extends Fragment implements Constants {
         requireActivity()
                 .getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.note_body_container, CurrentNoteFragment.newInstance())
+                .replace(R.id.note_body_container, CurrentNoteFragment.newInstance(note))
                 .commit();
     }
+
+
 }
