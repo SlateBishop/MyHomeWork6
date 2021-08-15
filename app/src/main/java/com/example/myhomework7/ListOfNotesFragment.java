@@ -8,14 +8,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 public class ListOfNotesFragment extends Fragment implements Constants {
 
     private Notes note;
-
-    public ListOfNotesFragment() {
-    }
 
     public static ListOfNotesFragment newInstance() {
         return new ListOfNotesFragment();
@@ -89,5 +87,11 @@ public class ListOfNotesFragment extends Fragment implements Constants {
                 .beginTransaction()
                 .replace(R.id.note_body_container, CurrentNoteFragment.newInstance(note))
                 .commit();
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putParcelable(NOTES_SAVE_INSTANCE_KEY, note);
+        super.onSaveInstanceState(outState);
     }
 }

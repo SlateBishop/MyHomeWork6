@@ -1,6 +1,5 @@
 package com.example.myhomework7;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,31 +7,22 @@ import androidx.fragment.app.Fragment;
 
 public class MainActivity extends AppCompatActivity implements Constants {
 
-    private Notes note;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (savedInstanceState != null) {
-            note = savedInstanceState.getParcelable(NOTES_SAVE_INSTANCE_KEY);
-        }
-        note = new Notes("1", "2", "3", 2); // TODO ПОНЯТЬ ЧТО ЗА МАГИЯ И ДЬЯВОЛЬЩИНА ТУТ ТВОРИТСЯ!!!
-        /*
-        Когда в onCreate явно создаю note = new Notes(...) с любыми аргументами, то все работает. (см 19 строку)
-        Если 19 строчку убрать или вынести в else, то ландшафтная ориентация ломается.
-        Так же в ландшафтной ориентации при таком раскладе фрагмент с самой заметкой всегда
-        открывается заполненным элекментами массивов с индексом 0.
-        И в целом вариант можно было бы считать рабочим, если бы я помимал как так вышло :с
-        Как я дебагером не проходил везде, так и не понял где я ошибся.
-         */
         setContentView(R.layout.activity_main);
-        setFragments(note);
+        if (savedInstanceState == null) {
+            replaceContainerToFragment(R.id.notes_list_container, ListOfNotesFragment.newInstance());
+        }
     }
 
-    private void setFragments(Notes note) {
-        replaceContainerToFragment(R.id.notes_list_container, ListOfNotesFragment.newInstance());
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            replaceContainerToFragment(R.id.note_body_container, CurrentNoteFragment.newInstance(note));
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Fragment backStackFragment = (Fragment) getSupportFragmentManager()
+                .findFragmentById(R.id.notes_list_container);
+        if (backStackFragment instanceof CurrentNoteFragment) {
+            onBackPressed();
         }
     }
 
