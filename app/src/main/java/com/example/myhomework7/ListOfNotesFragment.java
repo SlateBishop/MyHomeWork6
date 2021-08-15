@@ -1,6 +1,5 @@
 package com.example.myhomework7;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,13 +24,6 @@ public class ListOfNotesFragment extends Fragment implements Constants {
         if (savedInstanceState != null) {
             note = savedInstanceState.getParcelable(NOTES_SAVE_INSTANCE_KEY);
         }
-        if (isLandscape()) {
-            if (note != null) {
-                showNote(note.getNoteIndex());
-            } else {
-                showNote(0);
-            }
-        }
     }
 
     @Override
@@ -50,7 +42,6 @@ public class ListOfNotesFragment extends Fragment implements Constants {
             linearLayout.addView(textView);
             textView.setOnClickListener(v -> showNote(index));
         }
-
         return view;
     }
 
@@ -59,33 +50,15 @@ public class ListOfNotesFragment extends Fragment implements Constants {
                 getResources().getStringArray(R.array.noteBodiesArray)[i],
                 getResources().getStringArray(R.array.noteDataArray)[i],
                 i);
-
-        if (isLandscape()) {
-            showNoteLand();
-        } else {
-            showNotePort();
-        }
-
-    }
-
-    private boolean isLandscape() {
-        return getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
+        showNotePort();
     }
 
     private void showNotePort() {
         requireActivity()
                 .getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.notes_list_container, CurrentNoteFragment.newInstance(note))
+                .replace(R.id.notes_container, CurrentNoteFragment.newInstance(note))
                 .addToBackStack(BACK_STACK_TAG)
-                .commit();
-    }
-
-    private void showNoteLand() {
-        requireActivity()
-                .getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.note_body_container, CurrentNoteFragment.newInstance(note))
                 .commit();
     }
 

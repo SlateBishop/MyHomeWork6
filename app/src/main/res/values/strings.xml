@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">MyHomeWork7</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_fragment_text">Add note fragment</string>
     <string name="note_subject_hint">Subject</string>
     <string name="note_body_hint">Enter your note</string>
+    <string name="edit_fragment_text">Edit note fragment</string>
+    <string name="settings_fragment_text">Settings fragment</string>
+    <string name="profile_fragment_text">Profile settings fragment</string>
+    <string name="menu_add_text">add</string>
+    <string name="menu_edit_text">Edit</string>
+    <string name="menu_settings_text">Settings</string>
 </resources>

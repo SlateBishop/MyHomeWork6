@@ -3,4 +3,5 @@
     <dimen name="note_subject_text_size">25sp</dimen>
     <dimen name="note_body_text_size">18sp</dimen>
     <dimen name="note_date_text_size">20sp</dimen>
+    <dimen name="fragments_text_size">30sp</dimen>
 </resources>

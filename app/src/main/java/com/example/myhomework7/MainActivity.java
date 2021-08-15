@@ -1,8 +1,11 @@
 package com.example.myhomework7;
 
 import android.os.Bundle;
+import android.view.Menu;
+
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 public class MainActivity extends AppCompatActivity implements Constants {
@@ -12,19 +15,22 @@ public class MainActivity extends AppCompatActivity implements Constants {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
-            replaceContainerToFragment(R.id.notes_list_container, ListOfNotesFragment.newInstance());
+            replaceContainerToFragment(R.id.notes_container, ListOfNotesFragment.newInstance());
         }
+        initToolbar();
+    }
+
+    private void initToolbar() {
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        Fragment backStackFragment = (Fragment) getSupportFragmentManager()
-                .findFragmentById(R.id.notes_list_container);
-        if (backStackFragment instanceof CurrentNoteFragment) {
-            onBackPressed();
-        }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
     }
+
 
     private void replaceContainerToFragment(int containerID, Fragment fragment) {
         getSupportFragmentManager()
