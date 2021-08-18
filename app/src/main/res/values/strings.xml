@@ -10,4 +10,7 @@
     <string name="menu_edit_text">Edit</string>
     <string name="menu_settings_text">Settings</string>
     <string name="menu_home_text">Notes list</string>
+    <string name="user_name">Отчаяние</string>
+    <string name="user_description">Какая то дополнительная информация</string>
+    <string name="menu_profile_settings_text">Profile settings</string>
 </resources>

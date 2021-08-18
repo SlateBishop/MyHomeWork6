@@ -4,4 +4,6 @@
     <dimen name="note_body_text_size">18sp</dimen>
     <dimen name="note_date_text_size">20sp</dimen>
     <dimen name="fragments_text_size">30sp</dimen>
+    <dimen name="header_height">150dp</dimen>
+    <dimen name="header_img_height">110dp</dimen>
 </resources>

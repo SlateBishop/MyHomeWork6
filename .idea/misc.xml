@@ -7,6 +7,7 @@
         <entry key="..\:/Users/Voltaire/AndroidStudioProjects/MyHomeWork7/app/src/main/res/layout/activity_main.xml" value="0.12037037037037036" />
         <entry key="..\:/Users/Voltaire/AndroidStudioProjects/MyHomeWork7/app/src/main/res/layout/fragment_current_note.xml" value="0.18" />
         <entry key="..\:/Users/Voltaire/AndroidStudioProjects/MyHomeWork7/app/src/main/res/layout/fragment_list_of_notes.xml" value="0.12037037037037036" />
+        <entry key="..\:/Users/Voltaire/StudioProjects/MyHomeWork7/app/src/main/res/drawable/side_nav_bar.xml" value="0.3828125" />
         <entry key="..\:/Users/Voltaire/StudioProjects/MyHomeWork7/app/src/main/res/layout-land/activity_main.xml" value="0.20149911816578484" />
         <entry key="..\:/Users/Voltaire/StudioProjects/MyHomeWork7/app/src/main/res/layout/activity_main.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/Voltaire/StudioProjects/MyHomeWork7/app/src/main/res/layout/app_bar_main.xml" value="0.36666666666666664" />
@@ -16,6 +17,9 @@
         <entry key="..\:/Users/Voltaire/StudioProjects/MyHomeWork7/app/src/main/res/layout/fragment_edit_note.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Voltaire/StudioProjects/MyHomeWork7/app/src/main/res/layout/fragment_profile.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Voltaire/StudioProjects/MyHomeWork7/app/src/main/res/layout/fragment_settings.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Voltaire/StudioProjects/MyHomeWork7/app/src/main/res/layout/nav_header_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Voltaire/StudioProjects/MyHomeWork7/app/src/main/res/layout/toolbar_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Voltaire/StudioProjects/MyHomeWork7/app/src/main/res/menu/drawer_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Voltaire/StudioProjects/MyHomeWork7/app/src/main/res/menu/main_menu.xml" value="0.36666666666666664" />
       </map>
     </option>

@@ -10,8 +10,8 @@
 
     <item
         android:id="@+id/action_home"
-        android:title="@string/menu_home_text"
         android:icon="@android:drawable/ic_menu_revert"
+        android:title="@string/menu_home_text"
         app:showAsAction="ifRoom" />
 
     <item
@@ -23,7 +23,6 @@
         android:id="@+id/action_settings"
         android:title="@string/menu_settings_text"
         app:showAsAction="never" />
-
 
 
 </menu>
