@@ -45,6 +45,9 @@ public class MainActivity extends AppCompatActivity implements Constants {
             case R.id.action_settings:
                 replaceContainerToFragment(R.id.notes_container, SettingsFragment.newInstance());
                 break;
+            case R.id.action_home:
+                replaceContainerToFragment(R.id.notes_container, ListOfNotesFragment.newInstance());
+                break;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -53,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements Constants {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(containerID, fragment)
-                .addToBackStack(BACK_STACK_TAG)  //TODO если выживу подумать над лучшей реализацией или добавить в меню главную страницу
                 .commit();
     }
 }
