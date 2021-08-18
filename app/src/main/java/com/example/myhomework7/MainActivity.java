@@ -2,8 +2,10 @@ package com.example.myhomework7;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
@@ -31,11 +33,27 @@ public class MainActivity extends AppCompatActivity implements Constants {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_add:
+                replaceContainerToFragment(R.id.notes_container, AddNoteFragment.newInstance());
+                break;
+            case R.id.action_edit:
+                replaceContainerToFragment(R.id.notes_container, EditNoteFragment.newInstance());
+                break;
+            case R.id.action_settings:
+                replaceContainerToFragment(R.id.notes_container, SettingsFragment.newInstance());
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     private void replaceContainerToFragment(int containerID, Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(containerID, fragment)
+                .addToBackStack(BACK_STACK_TAG)  //TODO если выживу подумать над лучшей реализацией или добавить в меню главную страницу
                 .commit();
     }
 }
