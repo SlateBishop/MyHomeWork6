@@ -6,9 +6,14 @@ import android.view.MenuItem;
 
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements Constants {
 
@@ -19,12 +24,34 @@ public class MainActivity extends AppCompatActivity implements Constants {
         if (savedInstanceState == null) {
             replaceContainerToFragment(R.id.notes_container, ListOfNotesFragment.newInstance());
         }
-        initToolbar();
+        initDrawer(initToolbar());
     }
 
-    private void initToolbar() {
+    private void initDrawer(Toolbar toolbar) {
+        DrawerLayout drawerLayout = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this,
+                drawerLayout, toolbar, R.string.app_name, R.string.app_name);
+        drawerLayout.addDrawerListener(actionBarDrawerToggle);
+        actionBarDrawerToggle.syncState();
+        NavigationView navigationView = findViewById(R.id.navigation_view);
+        navigationView.setNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.action_settings:
+                    replaceContainerToFragment(R.id.notes_container, SettingsFragment.newInstance());
+                    break;
+                case R.id.action_profile_settings:
+                    replaceContainerToFragment(R.id.notes_container, ProfileSettingsFragment.newInstance());
+                    break;
+            }
+            drawerLayout.closeDrawer(GravityCompat.START);
+            return false;
+        });
+    }
+
+    private Toolbar initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        return toolbar;
     }
 
     @Override
