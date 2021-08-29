@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -40,36 +38,28 @@ public class ListOfNotesFragment extends Fragment implements Constants {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list_of_notes, container, false);
+        initRecyclerView(view);
+        return view;
+    }
+
+    private void initRecyclerView(View view) {
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
-        CardSource data = new CardSourceImplementation(getResources()).init();
+        CardSource data = new NotesCardSource(getResources()).init();
         ListOfNotesAdapter listOfNotesAdapter = new ListOfNotesAdapter(data);
+        setListeners(listOfNotesAdapter);
+        recyclerView.setAdapter(listOfNotesAdapter);
+    }
+
+    private void setListeners(ListOfNotesAdapter listOfNotesAdapter) {
         listOfNotesAdapter.setMyOnClickListener(new MyOnClickListener() {
             @Override
             public void onClick(View view, int position) {
                 showNote(position);
             }
         });
-        recyclerView.setAdapter(listOfNotesAdapter);
-
-
-        return view;
-    }
-
-    private void createNotesList(LinearLayout linearLayout) {
-        String[] notes = getResources().getStringArray(R.array.noteNamesArray);
-
-        for (int i = 0; i < notes.length; i++) {
-            String name = notes[i];
-            int index = i;
-            TextView textView = new TextView(requireContext());
-            textView.setText(name);
-            textView.setTextSize(TEXT_SIZE);
-            linearLayout.addView(textView);
-            textView.setOnClickListener(v -> showNote(index));
-        }
     }
 
     private void showNote(int i) {
