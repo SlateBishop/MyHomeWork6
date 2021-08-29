@@ -7,7 +7,7 @@ public class Notes implements Parcelable, Constants {
     private String noteName;
     private String noteBody;
     private String noteCreatedData;
-    private int noteIndex;
+    private int noteIndex; //TODO попробовать обойтись без индекса в конструкторе
 
     public Notes(String noteName, String noteBody, String noteCreatedData, int noteIndex) {
         this.noteName = noteName;

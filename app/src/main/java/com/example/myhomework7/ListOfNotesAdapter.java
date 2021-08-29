@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class ListOfNotesAdapter extends RecyclerView.Adapter<ListOfNotesAdapter.ViewHolder> {
 
-    private String[] dataSource;
+    private CardSource dataSource;
     private MyOnClickListener listener;
 
-    public ListOfNotesAdapter(String[] dataSource) {
+    public ListOfNotesAdapter(CardSource dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -29,12 +29,13 @@ public class ListOfNotesAdapter extends RecyclerView.Adapter<ListOfNotesAdapter.
 
     @Override
     public void onBindViewHolder(ListOfNotesAdapter.ViewHolder holder, int position) {
-
+        holder.subject.setText(dataSource.getNote(position).getNoteName());
+        holder.date.setText(dataSource.getNote(position).getNoteCreatedData());
     }
 
     @Override
     public int getItemCount() {
-        return dataSource.length;
+        return dataSource.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -54,20 +55,20 @@ public class ListOfNotesAdapter extends RecyclerView.Adapter<ListOfNotesAdapter.
             });
         }
 
-        public TextView getSubject() {
-            return subject;
-        }
-
-        public void setSubject(TextView subject) {
-            this.subject = subject;
-        }
-
-        public TextView getDate() {
-            return date;
-        }
-
-        public void setDate(TextView date) {
-            this.date = date;
-        }
+//        public TextView getSubject() {
+//            return subject;
+//        }
+//
+//        public void setSubject(TextView subject) {
+//            this.subject = subject;
+//        }
+//
+//        public TextView getDate() {
+//            return date;
+//        }
+//
+//        public void setDate(TextView date) {
+//            this.date = date;
+//        }
     }
 }

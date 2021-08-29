@@ -44,7 +44,7 @@ public class ListOfNotesFragment extends Fragment implements Constants {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
-        String[] data = getResources().getStringArray(R.array.noteNamesArray);
+        CardSource data = new CardSourceImplementation(getResources()).init();
         ListOfNotesAdapter listOfNotesAdapter = new ListOfNotesAdapter(data);
         listOfNotesAdapter.setMyOnClickListener(new MyOnClickListener() {
             @Override
