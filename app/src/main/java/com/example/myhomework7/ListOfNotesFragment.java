@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class ListOfNotesFragment extends Fragment implements Constants {
 
@@ -38,7 +40,25 @@ public class ListOfNotesFragment extends Fragment implements Constants {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list_of_notes, container, false);
-        LinearLayout linearLayout = (LinearLayout) view;
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        String[] data = getResources().getStringArray(R.array.noteNamesArray);
+        ListOfNotesAdapter listOfNotesAdapter = new ListOfNotesAdapter(data);
+        listOfNotesAdapter.setMyOnClickListener(new MyOnClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                showNote(position);
+            }
+        });
+        recyclerView.setAdapter(listOfNotesAdapter);
+
+
+        return view;
+    }
+
+    private void createNotesList(LinearLayout linearLayout) {
         String[] notes = getResources().getStringArray(R.array.noteNamesArray);
 
         for (int i = 0; i < notes.length; i++) {
@@ -50,8 +70,6 @@ public class ListOfNotesFragment extends Fragment implements Constants {
             linearLayout.addView(textView);
             textView.setOnClickListener(v -> showNote(index));
         }
-
-        return view;
     }
 
     private void showNote(int i) {
