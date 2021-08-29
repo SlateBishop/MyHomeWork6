@@ -5,6 +5,10 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.myhomework7.data.Constants;
+import com.example.myhomework7.ui.CurrentNoteFragment;
+import com.example.myhomework7.ui.ListOfNotesFragment;
+
 public class MainActivity extends AppCompatActivity implements Constants {
 
     @Override

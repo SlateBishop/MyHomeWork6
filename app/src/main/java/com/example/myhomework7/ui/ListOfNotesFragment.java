@@ -1,4 +1,4 @@
-package com.example.myhomework7;
+package com.example.myhomework7.ui;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -11,9 +11,16 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myhomework7.R;
+import com.example.myhomework7.data.CardSource;
+import com.example.myhomework7.data.Constants;
+import com.example.myhomework7.data.Notes;
+import com.example.myhomework7.data.NotesCardSource;
+
 public class ListOfNotesFragment extends Fragment implements Constants {
 
     private Notes note;
+    private CardSource data;
 
     public static ListOfNotesFragment newInstance() {
         return new ListOfNotesFragment();
@@ -22,6 +29,7 @@ public class ListOfNotesFragment extends Fragment implements Constants {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initData();
         if (savedInstanceState != null) {
             note = savedInstanceState.getParcelable(NOTES_SAVE_INSTANCE_KEY);
         }
@@ -32,6 +40,10 @@ public class ListOfNotesFragment extends Fragment implements Constants {
                 showNote(0);
             }
         }
+    }
+
+    private void initData() {
+        data = new NotesCardSource(getResources()).init();
     }
 
     @Override
@@ -47,7 +59,6 @@ public class ListOfNotesFragment extends Fragment implements Constants {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
-        CardSource data = new NotesCardSource(getResources()).init();
         ListOfNotesAdapter listOfNotesAdapter = new ListOfNotesAdapter(data);
         setListeners(listOfNotesAdapter);
         recyclerView.setAdapter(listOfNotesAdapter);

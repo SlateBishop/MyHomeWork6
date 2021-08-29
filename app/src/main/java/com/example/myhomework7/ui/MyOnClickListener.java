@@ -1,4 +1,4 @@
-package com.example.myhomework7;
+package com.example.myhomework7.ui;
 
 import android.view.View;
 

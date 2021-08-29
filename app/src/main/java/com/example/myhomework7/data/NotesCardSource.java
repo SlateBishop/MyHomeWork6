@@ -1,6 +1,8 @@
-package com.example.myhomework7;
+package com.example.myhomework7.data;
 
 import android.content.res.Resources;
+
+import com.example.myhomework7.R;
 
 import java.util.ArrayList;
 import java.util.List;

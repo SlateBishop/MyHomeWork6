@@ -1,4 +1,4 @@
-package com.example.myhomework7;
+package com.example.myhomework7.data;
 
 public interface CardSource {
     int size();

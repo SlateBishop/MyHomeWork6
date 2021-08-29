@@ -3,4 +3,8 @@
     <dimen name="note_subject_text_size">25sp</dimen>
     <dimen name="note_body_text_size">18sp</dimen>
     <dimen name="note_date_text_size">20sp</dimen>
+    <dimen name="note_padding">10dp</dimen>
+    <dimen name="card_margin">10dp</dimen>
+    <dimen name="card_corner_radius">10dp</dimen>
+    <dimen name="card_elevation">10dp</dimen>
 </resources>

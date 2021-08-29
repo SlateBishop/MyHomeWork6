@@ -1,4 +1,4 @@
-package com.example.myhomework7;
+package com.example.myhomework7.ui;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myhomework7.R;
+import com.example.myhomework7.data.CardSource;
 
 public class ListOfNotesAdapter extends RecyclerView.Adapter<ListOfNotesAdapter.ViewHolder> {
 

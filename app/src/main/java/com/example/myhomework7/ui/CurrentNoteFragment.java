@@ -1,4 +1,4 @@
-package com.example.myhomework7;
+package com.example.myhomework7.ui;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,6 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.myhomework7.R;
+import com.example.myhomework7.data.Constants;
+import com.example.myhomework7.data.Notes;
 
 public class CurrentNoteFragment extends Fragment implements Constants {
     private Notes note;

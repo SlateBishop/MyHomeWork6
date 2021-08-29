@@ -1,4 +1,4 @@
-package com.example.myhomework7;
+package com.example.myhomework7.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
